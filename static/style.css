@@ -1,0 +1,32 @@
+body {
+    background-image: url("forest.jpg");
+    background-size: cover;
+
+}
+
+h2 {
+    text-decoration: underline;
+    text-shadow: 2px 2px royalblue;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: xx-large;
+
+}
+  
+.form-contain {
+    background-color: yellowgreen;
+    font-style: oblique;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+.center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    
+ 
+}
+

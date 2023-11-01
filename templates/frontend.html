@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classifier</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Upload Image for Classification</h2>
+<div class="form-contain">
+    <form enctype="multipart/form-data" action="/predict" method="post" id="upload-form">
+        <input type="file" name="file" accept="image/*" required>
+        <input type="submit" value="Predict">
+    </form>
+</div>
+
+    <div class="center-text">
+        <h2 id="predictions"> Predicted Class</h2>
+    </div>
+    
+    <script>
+        $('#upload-form').submit(function(event){
+            event.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: '/predict',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    //$("#predictions").empty(); // Remove old predictions
+                    data.flower_name.forEach(function(name) {
+                        $("#predictions").append("<li>" + name + "</li>");
+                    });
+                },
+                error: function(data) {
+                    alert("Error!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
