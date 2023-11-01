@@ -88,7 +88,7 @@ import io
 
 app = Flask(__name__)
 
-model,class_to_idx= load_checkpoint(r"C:\Users\PUSHPITA\Downloads\checkpoint2.pth")
+model,class_to_idx= load_checkpoint(r"D:\My Projects\A-IMAGE-CLASSIFIER-PROJECT\checkpoint2.pth")
 model.eval()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
